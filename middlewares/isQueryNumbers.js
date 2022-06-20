@@ -9,6 +9,7 @@ const isQueryNumbers = (req, res, next) => {
         error: "Los datos enviados no son numericos"
       })
     }
+    req.query[key] = Number(query[key])
   }
   next()
 

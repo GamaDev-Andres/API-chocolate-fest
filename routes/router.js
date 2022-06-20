@@ -3,12 +3,14 @@
 import { Router } from 'express';
 import totalChocolates from '../helpers/totalChocolates.js';
 import dataNoEmpty from '../middlewares/dataNoEmpty.js';
+import isDataInRange from '../middlewares/isDataInRange.js';
 import isQueryNumbers from '../middlewares/isQueryNumbers.js';
 
 const router = new Router()
 
 router.use(dataNoEmpty)
 router.use(isQueryNumbers)
+router.use(isDataInRange)
 
 router.get("/", (req, res) => {
   const { n, c, m } = req.query
